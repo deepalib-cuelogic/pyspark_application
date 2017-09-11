@@ -33,13 +33,15 @@ def get_kafka_messages(path):
             record = line[0].split(',')
             if len(record) == 4:
                 record = [record[0]+record[1], record[2], record[3]]
-            yield {'CompanyName':record[0], 'FirstName':record[1], 'LastName':record[2]}
-
+            if record[0] != '':
+                yield {'companyname':record[0], 'firstname':record[1], 'lastname':record[2]}
+            else:
+                continue
 
 if __name__ == "__main__":
     host, port = "localhost", "9092"
     status, producer = get_producer(host,port)
-    path, topic,csv_len = "/home/pooja/pyspark_examples/csv_files/Aug28.csv", "file_upload", 2
+    path, topic,csv_len = "/home/pooja/pyspark_examples/csv_files/Aug28.csv", "file_upload", 1
     if status:
         message_iterator = iter(get_kafka_messages(path))
         for each in range(csv_len):

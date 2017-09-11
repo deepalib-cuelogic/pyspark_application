@@ -20,3 +20,12 @@ Now start the Kafka server:
 
 
 in/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic file_upload
+
+
+
+http://www.java2s.com/Code/Jar/s/Downloadscalalibrary2901jar.htm
+
+jar file for gentraverse
+ 
+copy to /usr/local/spark/jars
+
